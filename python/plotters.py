@@ -4,6 +4,8 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from gp import *
+
 
 def plot_iteration(first_param_grid, sampled_params, sampled_loss, first_iter=0, alpha=1e-5,
                    greater_is_better=True, true_y=None, second_param_grid=None,
@@ -68,7 +70,7 @@ def plot_iteration(first_param_grid, sampled_params, sampled_loss, first_iter=0,
 
             fig, ax1, ax2 = _plot_loss_2d(first_param_grid, second_param_grid, sampled_params[:(i+1), param_dims_to_plot], sampled_loss, mu, ei, sampled_params[i + 1, param_dims_to_plot], optimum)
 
-        if file_path is not None:
+        if filepath is not None:
             plt.savefig('%s/bo_iteration_%d.png' % (filepath, i), bbox_inches='tight')
 
 
